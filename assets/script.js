@@ -2,15 +2,23 @@
 const myApp = document.getElementById('app');
 const body = document.getElementsByName('body')
 const galleryContainer = document.createElement("div")
+const buttonContainer = document.createElement("div")
+
 
 //Selection menu
 const dropdownMenu = document.createElement("select")
-dropdownMenu.id= "animalSelect"
 const selectContainer = document.createElement("div")
 
 //Select append
-myApp.appendChild(selectContainer)
-myApp.appendChild(dropdownMenu)
+myApp.appendChild(buttonContainer)
+buttonContainer.appendChild(dropdownMenu)
+myApp.appendChild(galleryContainer)
+
+
+//Classes
+galleryContainer.classList ="galleryFlex"
+dropdownMenu.classList = "selectionStyle"
+buttonContainer.classList = "buttonFlex"
 
 
 //Option loop
@@ -32,9 +40,6 @@ for ( i = 0; i < 4; i++ ) {
     }
 }
 
-//style
-dropdownMenu.style.width = "110px"
-
 
 //Function run
 dropdownMenu.addEventListener("change", animalSwitch)
@@ -42,22 +47,20 @@ dropdownMenu.addEventListener("change", animalSwitch)
 function animalSwitch() {
 switch (dropdownMenu.value) {
     case "cat":
-            console.log("You selected cat");
-            buildCard("You've selected cat", "https://pbs.twimg.com/media/FQAeg_1WQAsoqos?format=jpg&name=900x900", "Kinda looks like Adam driver")
+            buildCard("You've chosen a cat", "https://pbs.twimg.com/media/FQAeg_1WQAsoqos?format=jpg&name=900x900", "Kinda looks like Adam driver")
         break;
 
     case "dog":
-            console.log("You selected dog");
-            buildCard("You've selected dog", "https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "this is a dog")
+            buildCard("You've chosen a dog", "https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "A dog's nose print is unique, much like a person's fingerprint.")
         break;
 
     case "bunny":
-            console.log("You selected bunny");
-            buildCard("You've selected bunny", "https://images.pexels.com/photos/326012/pexels-photo-326012.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "This is a bunny")
+            buildCard("You've chosen a bunny", "https://images.pexels.com/photos/326012/pexels-photo-326012.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Baby rabbits are called 'kittens'")
         break;
 
     default:
-        console.log("Error with selecting animal")
+        console.log("Error with selecting an animal")
+        buildCard()
         break;
 }
 
